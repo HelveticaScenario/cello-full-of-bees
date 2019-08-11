@@ -1,15 +1,22 @@
 {
-  "slug": "cello-full-of-bees",
-  "name": "Cello Full of Bees",
-  "version": "0.0.1",
-  "license": "MIT",
-  "brand": "Cello Full of Bees",
-  "author": "Daniel Lewis",
-  "authorEmail": "dan@helveticascenario.dev",
-  "authorUrl": "",
-  "pluginUrl": "",
-  "manualUrl": "",
-  "sourceUrl": "",
-  "donateUrl": "",
-  "modules": []
+	"slug": "cello-full-of-bees",
+	"name": "Cello Full of Bees",
+	"version": "0.0.1",
+	"license": "MIT",
+	"brand": "Cello Full of Bees",
+	"author": "Daniel Lewis",
+	"authorEmail": "dan@helveticascenario.dev",
+	"authorUrl": "",
+	"pluginUrl": "",
+	"manualUrl": "",
+	"sourceUrl": "",
+	"donateUrl": "",
+	"modules": [
+		{
+			"slug": "TappableClockSource",
+			"name": "Tappable Clock Source",
+			"description": "",
+			"tags": ["Clock generator", "Clock modulator"]
+		}
+	]
 }

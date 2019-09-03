@@ -1,0 +1,26 @@
+{
+  "name": "cello-full-of-bees",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelveticaScenario/cello-full-of-bees.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HelveticaScenario/cello-full-of-bees/issues"
+  },
+  "homepage": "https://github.com/HelveticaScenario/cello-full-of-bees#readme",
+  "devDependencies": {
+    "@types/node": "^12.7.3"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1",
+    "xmldom": "^0.1.27"
+  }
+}

@@ -284,6 +284,7 @@ struct TappableClockSourceWidget : ModuleWidget
 		{
 			auto knob = createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 70.182)), module, TappableClockSource::MULT_DIV_PARAM);
 			knob->snap = true;
+			// knob->
 			addParam(knob);
 		}
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 85.632)), module, TappableClockSource::MULT_DIV_INPUT));

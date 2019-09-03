@@ -7,6 +7,7 @@ using namespace rack;
 extern Plugin *pluginInstance;
 extern Model *modelTappableClockSource;
 // extern Model *modelGlass;
+extern Model *modelPolyarp;
 
 // Declare each Model, defined in each module source file
 // extern Model *modelMyModule;

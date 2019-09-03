@@ -71,11 +71,8 @@ struct Polyarp : Module
 					newChannels += 1;
 				}
 			}
-			if (newChannels != 0)
-			{
-				channels = newChannels;
-				gates = newGates;
-			}
+			channels = newChannels;
+			gates = newGates;
 		}
 		else
 		{

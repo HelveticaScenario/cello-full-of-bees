@@ -59,22 +59,15 @@ struct Polyarp : Module
 	{
 		if (inputs[GATE_IN_INPUT].isConnected())
 		{
-			int newChannels = 0;
-			std::vector<int> newGates(16);
 			int gateChannels = inputs[GATE_IN_INPUT].getChannels();
 			for (int i = 0; i < gateChannels; i++)
 			{
 				gateTriggers[i].process(rescale(inputs[GATE_IN_INPUT].getVoltage(i), 0.1f, 2.f, 0.f, 1.f));
 				if (gateTriggers[i].isHigh())
 				{
-					newGates[newChannels] = i;
-					newChannels += 1;
+					gates[channels] = i;
+					channels += 1;
 				}
-			}
-			if (newChannels != 0)
-			{
-				channels = newChannels;
-				gates = newGates;
 			}
 		}
 		else
@@ -271,13 +264,13 @@ struct PolyarpWidget : ModuleWidget
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-// GEN_START
+		// GEN_START
 		auto ARP_OUT_POS = Vec(23, 337);
-		auto TYPE_IN_POS = Vec(23, 107);
-		auto SIG_IN_POS = Vec(23, 152);
-		auto CLOCK_IN_POS = Vec(23, 197);
-		auto RESET_IN_POS = Vec(23, 242);
-		auto GATE_IN_POS = Vec(23, 287);
+		auto TYPE_IN_POS = Vec(23, 86);
+		auto SIG_IN_POS = Vec(23, 131);
+		auto CLOCK_IN_POS = Vec(23, 176);
+		auto RESET_IN_POS = Vec(23, 221);
+		auto GATE_IN_POS = Vec(23, 266);
 		auto TYPE_PARAM_POS = Vec(23, 32);
 // GEN_END
 

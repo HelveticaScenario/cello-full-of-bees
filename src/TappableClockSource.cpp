@@ -267,30 +267,39 @@ struct TappableClockSourceWidget : ModuleWidget
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<CKD6>(mm2px(Vec(7.62, 11.959)), module, TappableClockSource::TAP_PARAM));
-		addChild(createLightCentered<TapLight>(mm2px(Vec(7.62, 11.959)), module, TappableClockSource::TAP_LIGHT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 27.409)), module, TappableClockSource::TAP_INPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62f, 42.86)), module, TappableClockSource::CLOCK_OUTPUT));
+		// GEN_START
+		Vec CLOCK_IN_POS = Vec(22.5, 86);
+		Vec CLOCK_OUT_POS = Vec(22.5, 131);
+		Vec MULT_DIV_IN_POS = Vec(22.5, 221);
+		Vec MULT_DIV_OUT_POS = Vec(22.5, 337);
+		Vec MULT_DIV_PARAM_POS = Vec(22.5, 177);
+		Vec RESET_IN_POS = Vec(22.5, 266);
+		Vec TAP_PARAM_POS = Vec(22.5, 32);
+// GEN_END
+
+		addParam(createParamCentered<CKD6>(TAP_PARAM_POS, module, TappableClockSource::TAP_PARAM));
+		addChild(createLightCentered<TapLight>(TAP_PARAM_POS, module, TappableClockSource::TAP_LIGHT));
+		addInput(createInputCentered<PJ301MPort>(CLOCK_IN_POS, module, TappableClockSource::TAP_INPUT));
+		addOutput(createOutputCentered<PJ301MPort>(CLOCK_OUT_POS, module, TappableClockSource::CLOCK_OUTPUT));
+
+		// {
+		// 	TappableClockSourceDisplay *display = new TappableClockSourceDisplay();
+		// 	display->box.pos = mm2px(Vec(7.62, 56.521));
+		// 	display->box.size = mm2px(Vec(10.583, 7.476));
+		// 	display->box.pos = display->box.pos.minus(display->box.size.div(2));
+		// 	display->module = module;
+		// 	addChild(display);
+		// }
 
 		{
-			TappableClockSourceDisplay *display = new TappableClockSourceDisplay();
-			display->box.pos = mm2px(Vec(7.62, 56.521));
-			display->box.size = mm2px(Vec(10.583, 7.476));
-			display->box.pos = display->box.pos.minus(display->box.size.div(2));
-			display->module = module;
-			addChild(display);
-		}
-
-		{
-			auto knob = createParamCentered<RoundBlackKnob>(mm2px(Vec(7.62, 70.182)), module, TappableClockSource::MULT_DIV_PARAM);
+			auto knob = createParamCentered<RoundSmallBlackKnob>(MULT_DIV_PARAM_POS, module, TappableClockSource::MULT_DIV_PARAM);
 			knob->snap = true;
-			// knob->
 			addParam(knob);
 		}
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 85.632)), module, TappableClockSource::MULT_DIV_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(7.62, 101.083)), module, TappableClockSource::RESET_INPUT));
+		addInput(createInputCentered<PJ301MPort>(MULT_DIV_IN_POS, module, TappableClockSource::MULT_DIV_INPUT));
+		addInput(createInputCentered<PJ301MPort>(RESET_IN_POS, module, TappableClockSource::RESET_INPUT));
 
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(7.62f, 116.534)), module, TappableClockSource::MULT_DIV_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(MULT_DIV_OUT_POS, module, TappableClockSource::MULT_DIV_OUTPUT));
 	}
 };
 

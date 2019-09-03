@@ -264,7 +264,7 @@ struct PolyarpWidget : ModuleWidget
 	PolyarpWidget(Polyarp *module)
 	{
 		setModule(module);
-		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/frame.svg")));
+		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/PolyArp.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
@@ -272,13 +272,13 @@ struct PolyarpWidget : ModuleWidget
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 		// GEN_START
-		auto ARP_OUT_POS = Vec(23, 337);
-		auto TYPE_IN_POS = Vec(23, 86);
-		auto SIG_IN_POS = Vec(23, 131);
-		auto CLOCK_IN_POS = Vec(23, 176);
-		auto RESET_IN_POS = Vec(23, 221);
-		auto GATE_IN_POS = Vec(23, 266);
-		auto TYPE_PARAM_POS = Vec(23, 32);
+		Vec ARP_OUT_POS = Vec(22.5, 337);
+		Vec CLOCK_IN_POS = Vec(22.5, 176);
+		Vec GATE_IN_POS = Vec(22.5, 266);
+		Vec RESET_IN_POS = Vec(22.5, 221);
+		Vec SIG_IN_POS = Vec(22.5, 131);
+		Vec TYPE_IN_POS = Vec(22.5, 86);
+		Vec TYPE_PARAM_POS = Vec(22.5, 32);
 // GEN_END
 
 		{

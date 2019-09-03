@@ -18,7 +18,8 @@ struct Polyarp : Module
 	};
 	enum OutputIds
 	{
-		ARP_OUT_OUTPUT,
+		ARP_CV_OUT_OUTPUT,
+		ARP_TRIG_OUT_OUTPUT,
 		NUM_OUTPUTS
 	};
 	enum LightIds
@@ -42,6 +43,7 @@ struct Polyarp : Module
 	std::vector<float> voltages;
 
 	dsp::Timer resetTimer;
+	dsp::PulseGenerator trigPulse;
 	int step = 0;
 	int channels = 0;
 	bool toggle = false;
@@ -188,7 +190,7 @@ struct Polyarp : Module
 		if (channels == 0)
 		{
 			wasDisconnected = true;
-			outputs[ARP_OUT_OUTPUT].setVoltage(0.0f);
+			outputs[ARP_CV_OUT_OUTPUT].setVoltage(0.0f);
 		}
 		else
 		{
@@ -202,10 +204,12 @@ struct Polyarp : Module
 			{
 				nextStep();
 				sampleHoldSort();
+				trigPulse.trigger(1e-3f);
 			}
-			outputs[ARP_OUT_OUTPUT].setVoltage(voltages[step]);
+			outputs[ARP_CV_OUT_OUTPUT].setVoltage(voltages[step]);
 			wasDisconnected = false;
 		}
+		outputs[ARP_TRIG_OUT_OUTPUT].setVoltage(trigPulse.process(args.sampleTime) ? 10.0f : 0.0f);
 
 		resetTimer.process(args.sampleTime);
 	}
@@ -268,12 +272,13 @@ struct PolyarpWidget : ModuleWidget
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		// GEN_START
-		Vec ARP_OUT_POS = Vec(22.5, 337);
-		Vec CLOCK_IN_POS = Vec(22.5, 176);
-		Vec GATE_IN_POS = Vec(22.5, 266);
-		Vec RESET_IN_POS = Vec(22.5, 221);
-		Vec SIG_IN_POS = Vec(22.5, 131);
+// GEN_START
+		Vec ARP_CV_OUT_POS = Vec(22.5, 337);
+		Vec ARP_TRIG_OUT_POS = Vec(22.5, 288);
+		Vec CLOCK_IN_POS = Vec(22.5, 164);
+		Vec GATE_IN_POS = Vec(22.5, 242);
+		Vec RESET_IN_POS = Vec(22.5, 203);
+		Vec SIG_IN_POS = Vec(22.5, 125);
 		Vec TYPE_IN_POS = Vec(22.5, 86);
 		Vec TYPE_PARAM_POS = Vec(22.5, 32);
 // GEN_END
@@ -283,7 +288,8 @@ struct PolyarpWidget : ModuleWidget
 			knob->snap = true;
 			addParam(knob);
 		}
-		addOutput(createOutputCentered<PJ301MPort>(ARP_OUT_POS, module, Polyarp::ARP_OUT_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(ARP_CV_OUT_POS, module, Polyarp::ARP_CV_OUT_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(ARP_TRIG_OUT_POS, module, Polyarp::ARP_TRIG_OUT_OUTPUT));
 		addInput(createInputCentered<PJ301MPort>(TYPE_IN_POS, module, Polyarp::TYPE_IN_INPUT));
 		addInput(createInputCentered<PJ301MPort>(SIG_IN_POS, module, Polyarp::SIG_IN_INPUT));
 		addInput(createInputCentered<PJ301MPort>(CLOCK_IN_POS, module, Polyarp::CLOCK_IN_INPUT));

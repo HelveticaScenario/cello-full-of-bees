@@ -40,7 +40,7 @@ const genCodes = R.join(
 	)
 )
 const outFile = fs.readFileSync(outPath, 'utf8')
-const regex = /\/\/ GEN_START([\s\S]*)\/\/ GEN_END/
+const regex = /^.*\/\/ GEN_START([\s\S]*)\/\/ GEN_END/
 const newCode = `// GEN_START
 ${genCodes}
 // GEN_END`

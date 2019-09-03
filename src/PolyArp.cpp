@@ -59,15 +59,22 @@ struct Polyarp : Module
 	{
 		if (inputs[GATE_IN_INPUT].isConnected())
 		{
+			int newChannels = 0;
+			std::vector<int> newGates(16);
 			int gateChannels = inputs[GATE_IN_INPUT].getChannels();
 			for (int i = 0; i < gateChannels; i++)
 			{
 				gateTriggers[i].process(rescale(inputs[GATE_IN_INPUT].getVoltage(i), 0.1f, 2.f, 0.f, 1.f));
 				if (gateTriggers[i].isHigh())
 				{
-					gates[channels] = i;
-					channels += 1;
+					newGates[newChannels] = i;
+					newChannels += 1;
 				}
+			}
+			if (newChannels != 0)
+			{
+				channels = newChannels;
+				gates = newGates;
 			}
 		}
 		else

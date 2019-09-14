@@ -22,8 +22,14 @@
       ]
     },
     {
-      "slug": "polyarp",
-      "name": "polyarp",
+      "slug": "PolyArp",
+      "name": "PolyArp",
+      "description": "",
+      "tags": []
+    },
+    {
+      "slug": "SweepSeq",
+      "name": "SweepSeq",
       "description": "",
       "tags": []
     }

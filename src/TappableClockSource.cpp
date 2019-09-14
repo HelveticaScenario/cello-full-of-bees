@@ -275,7 +275,7 @@ struct TappableClockSourceWidget : ModuleWidget
 		Vec MULT_DIV_PARAM_POS = Vec(22.5, 177);
 		Vec RESET_IN_POS = Vec(22.5, 266);
 		Vec TAP_PARAM_POS = Vec(22.5, 32);
-// GEN_END
+		// GEN_END
 
 		addParam(createParamCentered<CKD6>(TAP_PARAM_POS, module, TappableClockSource::TAP_PARAM));
 		addChild(createLightCentered<TapLight>(TAP_PARAM_POS, module, TappableClockSource::TAP_LIGHT));

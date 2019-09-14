@@ -1,6 +1,6 @@
 #include "plugin.hpp"
 
-struct Polyarp : Module
+struct PolyArp : Module
 {
 	enum ParamIds
 	{
@@ -49,7 +49,7 @@ struct Polyarp : Module
 	bool toggle = false;
 	bool wasDisconnected = true;
 
-	Polyarp()
+	PolyArp()
 	{
 		voltages.reserve(16);
 		gates.reserve(16);
@@ -215,54 +215,9 @@ struct Polyarp : Module
 	}
 };
 
-static const char *arpModeStrings[] = {
-	"A",
-	"B",
-	"C",
-	"D"};
-
-struct PolyarpDisplay : TransparentWidget
+struct PolyArpWidget : ModuleWidget
 {
-	Polyarp *module;
-	std::shared_ptr<Font> font;
-
-	PolyarpDisplay()
-	{
-		font = APP->window->loadFont(asset::plugin(pluginInstance, "res/Roboto/Roboto-Light.ttf"));
-	}
-
-	void draw(const DrawArgs &args) override
-	{
-		Polyarp::ArpModes mode = module ? module->mode : Polyarp::ArpModes::UP;
-
-		// Background
-		NVGcolor backgroundColor = nvgRGB(0x38, 0x38, 0x38);
-		NVGcolor borderColor = nvgRGB(0x10, 0x10, 0x10);
-		nvgBeginPath(args.vg);
-		nvgRoundedRect(args.vg, 0.0, 0.0, box.size.x, box.size.y, 0.0);
-		nvgFillColor(args.vg, backgroundColor);
-		nvgFill(args.vg);
-		nvgStrokeWidth(args.vg, 1.0);
-		nvgStrokeColor(args.vg, borderColor);
-		nvgStroke(args.vg);
-
-		nvgTextAlign(args.vg, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
-		nvgFontSize(args.vg, 24);
-		nvgFontFaceId(args.vg, font->handle);
-		// nvgTextLetterSpacing(args.vg, 1.5);
-
-		Vec textPos = mm2px(Vec(10.583 / 2.0, 8.114 / 2.0));
-		NVGcolor textColor = nvgRGB(0xaf, 0xd2, 0x2c);
-		// nvgFillColor(args.vg, nvgTransRGBA(textColor, 16));
-		// nvgText(args.vg, textPos.x, textPos.y, "~~~~", NULL);
-		nvgFillColor(args.vg, textColor);
-		nvgText(args.vg, textPos.x, textPos.y, arpModeStrings[(int)mode], NULL);
-	}
-};
-
-struct PolyarpWidget : ModuleWidget
-{
-	PolyarpWidget(Polyarp *module)
+	PolyArpWidget(PolyArp *module)
 	{
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/PolyArp.svg")));
@@ -272,7 +227,7 @@ struct PolyarpWidget : ModuleWidget
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-// GEN_START
+		// GEN_START
 		Vec ARP_CV_OUT_POS = Vec(22.5, 337);
 		Vec ARP_TRIG_OUT_POS = Vec(22.5, 288);
 		Vec CLOCK_IN_POS = Vec(22.5, 164);
@@ -281,33 +236,21 @@ struct PolyarpWidget : ModuleWidget
 		Vec SIG_IN_POS = Vec(22.5, 125);
 		Vec TYPE_IN_POS = Vec(22.5, 86);
 		Vec TYPE_PARAM_POS = Vec(22.5, 32);
-// GEN_END
+		// GEN_END
 
 		{
-			Trimpot *knob = createParamCentered<Trimpot>(TYPE_PARAM_POS, module, Polyarp::TYPE_PARAM_PARAM);
+			Trimpot *knob = createParamCentered<Trimpot>(TYPE_PARAM_POS, module, PolyArp::TYPE_PARAM_PARAM);
 			knob->snap = true;
 			addParam(knob);
 		}
-		addOutput(createOutputCentered<PJ301MPort>(ARP_CV_OUT_POS, module, Polyarp::ARP_CV_OUT_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(ARP_TRIG_OUT_POS, module, Polyarp::ARP_TRIG_OUT_OUTPUT));
-		addInput(createInputCentered<PJ301MPort>(TYPE_IN_POS, module, Polyarp::TYPE_IN_INPUT));
-		addInput(createInputCentered<PJ301MPort>(SIG_IN_POS, module, Polyarp::SIG_IN_INPUT));
-		addInput(createInputCentered<PJ301MPort>(CLOCK_IN_POS, module, Polyarp::CLOCK_IN_INPUT));
-		addInput(createInputCentered<PJ301MPort>(RESET_IN_POS, module, Polyarp::RESET_IN_INPUT));
-		addInput(createInputCentered<PJ301MPort>(GATE_IN_POS, module, Polyarp::GATE_IN_INPUT));
-
-		// mm2px(Vec(10.583, 7.475))
-		// addChild(createWidget<Widget>(mm2px(Vec(2.272, 8.333))));
-
-		// {
-		// 	PolyarpDisplay *display = new PolyarpDisplay();
-		// 	display->box.pos = mm2px(Vec(2.272, 8.333));
-		// 	display->box.size = mm2px(Vec(10.583, 7.475));
-		// 	// display->box.pos = display->box.pos.minus(display->box.size.div(2));
-		// 	display->module = module;
-		// 	addChild(display);
-		// }
+		addOutput(createOutputCentered<PJ301MPort>(ARP_CV_OUT_POS, module, PolyArp::ARP_CV_OUT_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(ARP_TRIG_OUT_POS, module, PolyArp::ARP_TRIG_OUT_OUTPUT));
+		addInput(createInputCentered<PJ301MPort>(TYPE_IN_POS, module, PolyArp::TYPE_IN_INPUT));
+		addInput(createInputCentered<PJ301MPort>(SIG_IN_POS, module, PolyArp::SIG_IN_INPUT));
+		addInput(createInputCentered<PJ301MPort>(CLOCK_IN_POS, module, PolyArp::CLOCK_IN_INPUT));
+		addInput(createInputCentered<PJ301MPort>(RESET_IN_POS, module, PolyArp::RESET_IN_INPUT));
+		addInput(createInputCentered<PJ301MPort>(GATE_IN_POS, module, PolyArp::GATE_IN_INPUT));
 	}
 };
 
-Model *modelPolyarp = createModel<Polyarp, PolyarpWidget>("polyarp");
+Model *modelPolyArp = createModel<PolyArp, PolyArpWidget>("PolyArp");

@@ -1,3 +1,4 @@
+#pragma once
 #include <rack.hpp>
 
 
@@ -7,7 +8,8 @@ using namespace rack;
 extern Plugin *pluginInstance;
 extern Model *modelTappableClockSource;
 // extern Model *modelGlass;
-extern Model *modelPolyarp;
+extern Model *modelPolyArp;
+extern Model *modelSweepSeq;
 
 // Declare each Model, defined in each module source file
 // extern Model *modelMyModule;

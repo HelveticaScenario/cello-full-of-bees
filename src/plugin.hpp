@@ -9,7 +9,7 @@ extern Plugin *pluginInstance;
 extern Model *modelTappableClockSource;
 // extern Model *modelGlass;
 extern Model *modelPolyArp;
-extern Model *modelSweepSeq;
+extern Model *modelRiff;
 
 // Declare each Model, defined in each module source file
 // extern Model *modelMyModule;

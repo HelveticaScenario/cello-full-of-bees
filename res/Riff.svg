@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="390px" height="379px" viewBox="0 0 390 379" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Riff</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Riff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="390" height="379"></rect>
+        <g id="Notes" transform="translate(21.000000, 79.000000)" fill="#D8D8D8" stroke="#979797">
+            <g id="Note-Row-2" transform="translate(0.000000, 23.000000)">
+                <circle id="Note-Light-15" cx="209.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-14" cx="180.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-13" cx="151.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-12" cx="122.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-11" cx="93.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-10" cx="64.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-09" cx="35.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-08" cx="6.5" cy="6.5" r="6.5"></circle>
+            </g>
+            <g id="Note-Row-1">
+                <circle id="Note-Light-07" cx="209.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-06" cx="180.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-05" cx="151.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-04" cx="122.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-03" cx="93.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-02" cx="64.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-01" cx="35.5" cy="6.5" r="6.5"></circle>
+                <circle id="Note-Light-00" cx="6.5" cy="6.5" r="6.5"></circle>
+            </g>
+        </g>
+        <g id="Steps" transform="translate(10.000000, 24.000000)" fill="#D8D8D8" stroke="#979797">
+            <g id="Step-Row-2" transform="translate(0.000000, 23.000000)">
+                <circle id="Step-Light-15" cx="220.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-15" cx="235" cy="7" r="3"></circle>
+                <circle id="Step-Light-14" cx="191.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-14" cx="206" cy="7" r="3"></circle>
+                <circle id="Step-Light-13" cx="162.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-13" cx="177" cy="7" r="3"></circle>
+                <circle id="Step-Light-12" cx="133.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-12" cx="148" cy="7" r="3"></circle>
+                <circle id="Step-Light-11" cx="104.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-11" cx="119" cy="7" r="3"></circle>
+                <circle id="Step-Light-10" cx="75.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-10" cx="90" cy="7" r="3"></circle>
+                <circle id="Step-Light-09" cx="46.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-09" cx="61" cy="7" r="3"></circle>
+                <circle id="Step-Light-08" cx="17.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-08" cx="32" cy="7" r="3"></circle>
+                <circle id="Tie-Light-17" cx="3" cy="7" r="3"></circle>
+            </g>
+            <g id="Step-Row-1">
+                <circle id="Step-Light-07" cx="220.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-07" cx="235" cy="7" r="3"></circle>
+                <circle id="Step-Light-06" cx="191.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-06" cx="206" cy="7" r="3"></circle>
+                <circle id="Step-Light-05" cx="162.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-05" cx="177" cy="7" r="3"></circle>
+                <circle id="Step-Light-04" cx="133.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-04" cx="148" cy="7" r="3"></circle>
+                <circle id="Step-Light-03" cx="104.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-03" cx="119" cy="7" r="3"></circle>
+                <circle id="Step-Light-02" cx="75.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-02" cx="90" cy="7" r="3"></circle>
+                <circle id="Step-Light-01" cx="46.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-01" cx="61" cy="7" r="3"></circle>
+                <circle id="Step-Light-00" cx="17.5" cy="6.5" r="6.5"></circle>
+                <circle id="Tie-Light-00" cx="32" cy="7" r="3"></circle>
+                <circle id="Tie-Light-16" cx="3" cy="7" r="3"></circle>
+            </g>
+        </g>
+        <circle id="Clock-In" stroke="#979797" fill="#D8D8D8" cx="315" cy="86" r="9"></circle>
+        <circle id="Clock-Out" stroke="#979797" fill="#D8D8D8" cx="348" cy="86" r="9"></circle>
+        <circle id="Mult-Div-In" stroke="#979797" fill="#D8D8D8" cx="315" cy="192" r="9"></circle>
+        <circle id="Mult-Div-Out" stroke="#979797" fill="#D8D8D8" cx="348" cy="192" r="9"></circle>
+        <circle id="Mult-Div-Param" stroke="#979797" fill="#D8D8D8" cx="330" cy="139" r="9"></circle>
+        <circle id="Reset-In" stroke="#979797" fill="#D8D8D8" cx="348" cy="245" r="9"></circle>
+        <circle id="Reset-Param" stroke="#979797" fill="#D8D8D8" cx="315" cy="245" r="9"></circle>
+        <circle id="Tap-Param" stroke="#979797" fill="#D8D8D8" cx="330" cy="33" r="9"></circle>
+    </g>
+</svg>

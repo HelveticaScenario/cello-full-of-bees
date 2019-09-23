@@ -9,16 +9,36 @@ var DOMParser = require('xmldom').DOMParser
 var doc = new DOMParser().parseFromString(svg, 'image/svg+xml')
 const attr = R.curry((attr, el) => el.getAttribute(attr))
 
-const idGet = attr('id')
+const idGet = R.compose(
+	R.replace(/\-/g, '_'),
+	attr('id')
+)
 const cxGet = attr('cx')
 const cyGet = attr('cy')
 
 const posStr = (id, cx, cy) => `${'\t\t'}Vec ${id}_POS = Vec(${cx}, ${cy});`
+const translateRegex = /translate\((\d+\.\d+), (\d+\.\d+)\)/
 
 const codeGenFunc = el => {
-	const id = idGet(el)
-	const cx = cxGet(el)
-	const cy = cyGet(el)
+	let cx = 0
+	let cy = 0
+	let parent = el.parentNode
+	while (parent) {
+		if (parent.getAttribute) {
+			const translate = translateRegex.exec(
+				parent.getAttribute('transform') || ''
+			)
+			if (translate) {
+				const [, x, y] = translate
+				cx += parseFloat(x)
+				cy += parseFloat(y)
+			}
+		}
+		parent = parent.parentNode
+	}
+	const id = R.toUpper(idGet(el))
+	cx += parseFloat(cxGet(el))
+	cy += parseFloat(cyGet(el))
 	return posStr(id, cx, cy)
 }
 
